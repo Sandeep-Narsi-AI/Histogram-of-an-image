@@ -7,62 +7,97 @@ Anaconda - Python 3.7
 
 ## Algorithm:
 ### Step1:
+ Import the necessary libraries and read two images, Color image and Gray Scale image.
 <br>
 
 ### Step2:
+Calculate the Histogram of Gray scale image and each channel of the color image.
 <br>
 
 ### Step3:
+Display the histograms with their respective images.
+
+
 <br>
 
 ### Step4:
+Equalize the grayscale image.
+
+
 <br>
 
 ### Step5:
+Display the grayscale image.
+
+
 <br>
 
 ## Program:
 ```python
-# Developed By:
-# Register Number:
+# Developed By: P.SANDEEP
+# Register Number: 212221230074
+```
+```
 import cv2
 import matplotlib.pyplot as plt
-
-# Write your code to find the histogram of gray scale image and color image channels.
-
-
-
-
-
-# Display the histogram of gray scale image and any one channel histogram from color image
-
-
-
-
-
-# Write the code to perform histogram equalization of the image. 
-
-
-
-
-
-
-
 ```
+## Write your code to find the histogram of gray scale image and color image channels.
+```
+Gray_image=cv2.imread('bg.png')
+plt.imshow(Gray_image)
+plt.show()
+hist=cv2.calcHist([Gray_image],[0],None,[256],[0,256])
+plt.figure()
+plt.title("Histogram")
+plt.xlabel('grayscale value')
+plt.ylabel('pixel count')
+plt.stem(hist)
+plt.show()
+```
+
+## Display the histogram of gray scale image and any one channel histogram from color image
+```
+Color_image=cv2.imread('bike.png')
+plt.imshow(Color_image)
+plt.show()
+hist1=cv2.calcHist([Color_image],[1],None,[256],[0,256])
+plt.figure()
+plt.title("Histogram")
+plt.xlabel('Intensity value')
+plt.ylabel('pixel count')
+plt.stem(hist1)
+plt.show()
+```
+## Write the code to perform histogram equalization of the image. 
+```
+Gray_image=cv2.imread('bg.png',0)
+equ=cv2.equalizeHist(Gray_image)
+cv2.imshow('Gray Image',Gray_image)
+cv2.imshow('Equalized Image',equ)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+
+
+
+
+
+
+
+
 ## Output:
 ### Input Grayscale Image and Color Image
-<br>
-<br>
-<br>
+![gray_img](gray1.png)
+![color_img](color1.png)
 <br>
 
 ### Histogram of Grayscale Image and any channel of Color Image
-<br>
-<br>
-<br>
+![grayscale_graph](graph1.png)
+![intensity_value](graph2.png)
 <br>
 
 ### Histogram Equalization of Grayscale Image
+![histogram](gray_comb.png)
 <br>
 <br>
 <br>
